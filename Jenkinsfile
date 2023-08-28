@@ -9,7 +9,7 @@ pipeline{
 
                 script{
                     def nodejsTool = tool name: 'node-20-tool', type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation'
-                    env.PATH = "${nodejsTool}/bin:$(env.PATH)"
+                    env.PATH = "${nodejsTool}/bin:${env.PATH}"
                 }
                 sh 'node --version'
             }
