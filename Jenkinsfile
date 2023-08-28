@@ -32,6 +32,10 @@ pipeline{
                     env.PATH = "${dockerTool}/bin:${env.PATH}"
                 }
                 sh "docker --version"
+
+                withCredentials([usernamePassword(credentialsId: 'personal-docker-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                    sh 'echo "Username: $DOCKER_USERNAME"'
+                }
             }
         }
 
